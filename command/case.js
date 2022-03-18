@@ -953,7 +953,14 @@ case 'rulesda': case 'rda':
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
     reply('⚠️ RULES/PERATURAN GROUP\n➡️ LARANGAN CHAT💬 :\n• Dilarang toxic & rasis\n• Dilarang nyimak & nabung pesan\n• Dilarang membahas selain anime, manga, manhua, dan manhwa\n➡️ MEDIA📌 : \n• Stiker 4x, gif 3x sehari (lebih kick)\n• Pesan suara 5x sehari (lebih kick)\n• Video, foto, musik 5x file/menit (lewati batas kick)\n➡️ LARANGAN SHARE📲 : \n• Dilarang share 18+ (porno/sex/adult)\n• Dilarang share link phising/hoax\n• Dilarang share group WA, Tele, Channel YT\n• Dilarang promosi WA, Tele, Channel YT\n➡️ TUJUAN🖊️ : \n• Membahas seputar manga, manhua, manhwa (DA 3)\n• Berbagi rekomendasi & info update anime (DA 1)\n• Menjalin solidaritas animelovers, wibu, dan otaku\n• Saling berbagi ilmu bahasa Jepang (DA 2)\n➡️ NOTE📝: \n• Jika melanggar aturan tersebut akan dikeluarkan dari group\n\n~ Baca & patuhi rules tersebut ~ 🤝🏻')
-			break  
+			break 
+case '.welcome':
+			if (!isGroup) return reply(lang.group())
+			if (!isGroupAdmins) return reply(lang.admin(groupName))
+			if (!isBotGroupAdmins) return reply(lang.adminB())
+					await 
+    reply('──⸙̣᭢➯[HLO NEW MEM] ⬅️✅\n┊ ╰────╯╰࿎࿎─── ︿︿︿︿︿ .\n╭❀:ཻུ۪۪─────────────────╮\n┊🌼┊╰─❒Nama= \n┊🍃┊╰─❒Umur= \n┊🍂┊╰─❒Cewe/Cowo= \n┊🌻┊╰─❒Bekerja/pelajar= \n┊🥀┊╰─❒Niat masuk grup= \n╰─❀ TOLONG PATUHI RULES!!🐣✨\n:ཻུ۪۪────────────────╯*\n✧ ⃟ ⃟ ━━━ೋ๑୨۝୧๑ೋ━━━ ⃟ ⃟ ✧')
+			break   
 case 'kick':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
