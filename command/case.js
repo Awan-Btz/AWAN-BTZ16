@@ -653,6 +653,7 @@ case 'spotifysearch':{
     break
 case 'nhentaiharam':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+    if (!isOwner) return reply(lang.owner(botname))
     if (args.length == 0) return reply(`Example: ${prefix + command} 344253`)
     henid = args[0]
     get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${henid}?apikey=${lolkey}`)
@@ -673,7 +674,8 @@ case 'nhentaiharam':{
     reply(ini_txt)}
     break
  case 'nhentaipdfharam':{
- 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+ 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});    
+	if (!isOwner) return reply(lang.owner(botname))
     if (args.length == 0) return reply(`Example: ${prefix + command} 344253`)
     henid = args[0]
     get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=${lolkey}`)
@@ -684,6 +686,7 @@ case 'nhentaiharam':{
     break
 case 'nhentaisearcharam':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+    if (!isOwner) return reply(lang.owner(botname))
     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
     query = args.join(" ")
     get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentaisearch?apikey=${lolkey}&query=${query}`)
@@ -800,6 +803,7 @@ break
 case 'antilink':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					if (Number(args[0]) === 1) {
@@ -868,6 +872,7 @@ case 'leave':
 case 'hidetag':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			var value = q
 			var group = await haruka.groupMetadata(from)
@@ -886,6 +891,8 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button 
 case 'linkgrup':case 'linkgroup': case 'linkgc':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
+			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			linkgc = await haruka.groupInviteCode(from)
 			yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
 			haruka.sendMessage(from, yeh, text, { quoted: mek })
@@ -893,6 +900,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button 
 case 'tagall':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			members_id = []
 			taga = (args.length > 1) ? body.slice(8).trim() : ''
@@ -906,6 +914,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button 
 case 'setname':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await haruka.groupUpdateSubject(from, `${q}`)
@@ -914,6 +923,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button 
 case 'setdesc': case 'setdesk':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await haruka.groupUpdateDescription(from, `${q}`)
@@ -921,6 +931,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button 
 			break  
 case 'introda3': case 'da3':
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -928,6 +939,7 @@ case 'introda3': case 'da3':
 			break   
 case 'introda2': case 'da2':
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -935,6 +947,7 @@ case 'introda2': case 'da2':
 			break   
 case 'introda1': case 'da1':
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -942,6 +955,7 @@ case 'introda1': case 'da1':
 			break   
 case 'introdaofc': case 'daofc':
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -949,6 +963,7 @@ case 'introdaofc': case 'daofc':
 			break
 case 'rulesda': case 'rda':
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -956,6 +971,7 @@ case 'rulesda': case 'rda':
 			break 
 case '.welcome':
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -964,6 +980,7 @@ case '.welcome':
 case 'kick':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 			if(!q)return reply(`*Format salah!*\n\n*Example : ${prefix + command} @tag*`)
