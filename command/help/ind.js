@@ -48,11 +48,7 @@ exports.ok = () =>{
 	return` ✅ Oke done ~`
 	}
 exports.welcome = () =>{
-	return`Jangan Lupa Intro Ya~
-⌯ָ   ֙Nama :
-⌯ָ   ֙Umur :
-⌯ָ   ֙Kelamin :
-⌯ָ   ֙Askot :
+	return`Jangan Lupa Intro Ya (Introan ada Di Admin)~
 ╰─ ᝬ _Jika grub tutup bisa menunggu grub buka_  >_<`
       }
 exports.leave = () =>{
