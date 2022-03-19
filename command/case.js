@@ -1023,13 +1023,43 @@ case 'rulesda': case 'rda':
 					await 
     reply('⚠️ RULES/PERATURAN GROUP\n➡️ LARANGAN CHAT💬 :\n• Dilarang toxic & rasis\n• Dilarang nyimak & nabung pesan\n• Dilarang membahas selain anime, manga, manhua, dan manhwa\n➡️ MEDIA📌 : \n• Stiker 4x, gif 3x sehari (lebih kick)\n• Pesan suara 5x sehari (lebih kick)\n• Video, foto, musik 5x file/menit (lewati batas kick)\n➡️ LARANGAN SHARE📲 : \n• Dilarang share 18+ (porno/sex/adult)\n• Dilarang share link phising/hoax\n• Dilarang share group WA, Tele, Channel YT\n• Dilarang promosi WA, Tele, Channel YT\n➡️ TUJUAN🖊️ : \n• Membahas seputar manga, manhua, manhwa (DA 3)\n• Berbagi rekomendasi & info update anime (DA 1)\n• Menjalin solidaritas animelovers, wibu, dan otaku\n• Saling berbagi ilmu bahasa Jepang (DA 2)\n➡️ NOTE📝: \n• Jika melanggar aturan tersebut akan dikeluarkan dari group\n\n~ Baca & patuhi rules tersebut ~ 🤝🏻')
 			break 
-case '.welcome':
+case 'welcome':
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
     reply('──⸙̣᭢➯[HLO NEW MEM] ⬅️✅\n┊ ╰────╯╰࿎࿎─── ︿︿︿︿︿ .\n╭❀:ཻུ۪۪─────────────────╮\n┊🌼┊╰─❒Nama= \n┊🍃┊╰─❒Umur= \n┊🍂┊╰─❒Cewe/Cowo= \n┊🌻┊╰─❒Bekerja/pelajar= \n┊🥀┊╰─❒Niat masuk grup= \n╰─❀ TOLONG PATUHI RULES!!🐣✨\n:ཻུ۪۪────────────────╯*\n✧ ⃟ ⃟ ━━━ೋ๑୨۝୧๑ೋ━━━ ⃟ ⃟ ✧')
 			break   
+case 'ppcp':
+case 'ppcouple':
+if (!isGroup) return reply(lang.group())
+anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
+buff1 = await getBuffer (anu.result.cowo_image)
+haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
+buff2 =await getBuffer (anu.result.cewe_image)
+haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
+break
+case 'join':  case 'joingc':
+   if (!q) return reply('Linknya?')
+   if (!isOwner) return reply(lang.owner(botname)) {
+   if (!isUrl(args[0]) && !args[0].includes('https://chat.whatsapp.com/')) return reply('Linknya Invalid Kak')
+   reply('Please waitt...')
+   link = args[0].replace('https://chat.whatsapp.com/','')
+   fak = haruka.query({ json: ['action', 'invite', link],
+   expect200: true })
+   reply('Berhasil Masuk Grup')
+   } else {
+   const buttons = [{buttonId: `${prefix}owner`, buttonText: {displayText: 'OWNER'}, type: 1}]
+   const buttonMessage = {
+   headerType: "IMAGE",
+   contentText: `Hai Kak, Fitur Ini Hanya Bisa Di Gunakan Oleh Owner`,
+   footerText: 'ingin sewa? klik di bawah',
+   buttons: buttons,
+   headerType: 1
+   }
+   await haruka.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
+   }
+   break
 case 'kick':
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
