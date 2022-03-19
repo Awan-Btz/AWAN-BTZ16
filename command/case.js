@@ -1039,27 +1039,6 @@ haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
 buff2 =await getBuffer (anu.result.cewe_image)
 haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
 break
-case 'join':  case 'joingc':
-   if (!q) return reply('Linknya?')
-   if (!isOwner) return reply(lang.owner(botname)) {
-   if (!isUrl(args[0]) && !args[0].includes('https://chat.whatsapp.com/')) return reply('Linknya Invalid Kak')
-   reply('Please waitt...')
-   link = args[0].replace('https://chat.whatsapp.com/','')
-   fak = haruka.query({ json: ['action', 'invite', link],
-   expect200: true })
-   reply('Berhasil Masuk Grup')
-   } else {
-   const buttons = [{buttonId: `${prefix}owner`, buttonText: {displayText: 'OWNER'}, type: 1}]
-   const buttonMessage = {
-   headerType: "IMAGE",
-   contentText: `Hai Kak, Fitur Ini Hanya Bisa Di Gunakan Oleh Owner`,
-   footerText: 'ingin sewa? klik di bawah',
-   buttons: buttons,
-   headerType: 1
-   }
-   await haruka.sendMessage(from, buttonMessage, MessageType.buttonsMessage)
-   }
-   break
 case 'kick':
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
