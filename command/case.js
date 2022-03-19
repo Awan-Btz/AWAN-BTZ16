@@ -771,16 +771,14 @@ case 'kisahnabi':{
     reply(ini_txt)}
     break
 case 'alquranaudio':{
-	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-    if (args.length == 0) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10`)
+	    if (args.length == 0) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10`)
     surah = args[0]
     ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/quran/audio/${surah}?apikey=${lolkey}`)
     await haruka.sendMessage(from, ini_buffer, audio, { quoted: mek, mimetype: 'audio/mpeg' })
     }
     break
 case 'jadwalsholat':{
-	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-    if (args.length == 0) return reply(`Example: ${prefix + command} Yogyakarta`)
+	    if (args.length == 0) return reply(`Example: ${prefix + command} Yogyakarta`)
     daerah = args.join(" ")
     get_result = await fetchJson(`https://api.lolhuman.xyz/api/sholat/${daerah}?apikey=${lolkey}`)
     get_result = get_result.result
@@ -803,8 +801,27 @@ break
 case 'antilink':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
+			if (!isBotGroupAdmins) return reply(lang.adminB())
+					if (Number(args[0]) === 1) {
+						if (isAntiLink) return reply('Telah di aktifkan sebelumnya')
+						antilink.push(from)
+						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+						reply(`✅ Berhasil mengaktifkan ${command}`)
+					} else if (Number(args[0]) === 0) {
+						if (!isAntiLink) return reply('Udh mati')
+						var ini = anti.botLangsexOf(from)
+						antilink.splice(ini, 1)
+						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+						reply(`✅ Berhasil mematikan ${command}`)
+					} else {
+						reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
+					}
+					break		
+case 'oantilink':
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+			if (!isGroup) return reply(lang.group())
+			if (!isOwner) return reply(lang.owner(botname))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					if (Number(args[0]) === 1) {
 						if (isAntiLink) return reply('Telah di aktifkan sebelumnya')
@@ -872,8 +889,24 @@ case 'leave':
 case 'hidetag':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
+			var value = q
+			var group = await haruka.groupMetadata(from)
+			var member = group['participants']
+			var mem = []
+			member.map( async adm => {
+			mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
+			})
+			var options = {
+			text: value ? value :' ',
+			contextInfo: { mentionedJid: mem },
+			quoted: mek
+			}
+			haruka.sendMessage(from, options, text)
+			break
+case 'ohidetag':
+			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			var value = q
 			var group = await haruka.groupMetadata(from)
 			var member = group['participants']
@@ -890,17 +923,21 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button 
 			break
 case 'linkgrup':case 'linkgroup': case 'linkgc':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
+		        if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			linkgc = await haruka.groupInviteCode(from)
 			yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
 			haruka.sendMessage(from, yeh, text, { quoted: mek })
 			break  
-case 'tagall':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-			if (!isGroup) return reply(lang.group())
+case 'olinkgrup':case 'olinkgroup': case 'olinkgc':
+		        if (!isGroup) return reply(lang.group())
 		        if (!isOwner) return reply(lang.owner(botname))
+			linkgc = await haruka.groupInviteCode(from)
+			yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
+			haruka.sendMessage(from, yeh, text, { quoted: mek })
+			break
+case 'tagall':
+			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			members_id = []
 			taga = (args.length > 1) ? body.slice(8).trim() : ''
@@ -911,27 +948,48 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button 
 			}
 			mentions(taga, members_id, true)
 			break 
-case 'setname':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+case 'otagall':
 			if (!isGroup) return reply(lang.group())
 		        if (!isOwner) return reply(lang.owner(botname))
+			members_id = []
+			taga = (args.length > 1) ? body.slice(8).trim() : ''
+			taga += '\n\n'
+			for (let mem of groupMembers) {
+				taga += `➸ @${mem.jid.split('@')[0]}\n`
+				members_id.push(mem.jid)
+			}
+			mentions(taga, members_id, true)
+			break 
+case 'setname':
+			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await haruka.groupUpdateSubject(from, `${q}`)
 					haruka.sendMessage(from, `Sukses Mengubah Nama Grup Menjadi ${q}`, text, { quoted: mek })
 			break          
-case 'setdesc': case 'setdesk':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+case 'setname':
 			if (!isGroup) return reply(lang.group())
 		        if (!isOwner) return reply(lang.owner(botname))
+			if (!isBotGroupAdmins) return reply(lang.adminB())
+					await haruka.groupUpdateSubject(from, `${q}`)
+					haruka.sendMessage(from, `Sukses Mengubah Nama Grup Menjadi ${q}`, text, { quoted: mek })
+			break          
+case 'setdesc': case 'setdesk':
+			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
+			if (!isBotGroupAdmins) return reply(lang.adminB())
+					await haruka.groupUpdateDescription(from, `${q}`)
+					haruka.sendMessage(from, `Sukses Mengubah Desk Grup Menjadi ${q}`, text, { quoted: mek })
+			break  
+case 'osetdesc': case 'osetdesk':
+			if (!isGroup) return reply(lang.group())
+		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await haruka.groupUpdateDescription(from, `${q}`)
 					haruka.sendMessage(from, `Sukses Mengubah Desk Grup Menjadi ${q}`, text, { quoted: mek })
 			break  
 case 'introda3': case 'da3':
 			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -939,7 +997,6 @@ case 'introda3': case 'da3':
 			break   
 case 'introda2': case 'da2':
 			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -947,7 +1004,6 @@ case 'introda2': case 'da2':
 			break   
 case 'introda1': case 'da1':
 			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -955,7 +1011,6 @@ case 'introda1': case 'da1':
 			break   
 case 'introdaofc': case 'daofc':
 			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -963,7 +1018,6 @@ case 'introdaofc': case 'daofc':
 			break
 case 'rulesda': case 'rda':
 			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
@@ -971,17 +1025,23 @@ case 'rulesda': case 'rda':
 			break 
 case '.welcome':
 			if (!isGroup) return reply(lang.group())
-		        if (!isOwner) return reply(lang.owner(botname))
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
     reply('──⸙̣᭢➯[HLO NEW MEM] ⬅️✅\n┊ ╰────╯╰࿎࿎─── ︿︿︿︿︿ .\n╭❀:ཻུ۪۪─────────────────╮\n┊🌼┊╰─❒Nama= \n┊🍃┊╰─❒Umur= \n┊🍂┊╰─❒Cewe/Cowo= \n┊🌻┊╰─❒Bekerja/pelajar= \n┊🥀┊╰─❒Niat masuk grup= \n╰─❀ TOLONG PATUHI RULES!!🐣✨\n:ཻུ۪۪────────────────╯*\n✧ ⃟ ⃟ ━━━ೋ๑୨۝୧๑ೋ━━━ ⃟ ⃟ ✧')
 			break   
 case 'kick':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+			if (!isGroup) return reply(lang.group())
+			if (!isGroupAdmins) return reply(lang.admin(groupName))
+			if (!isBotGroupAdmins) return reply(lang.adminB())
+			if(!q)return reply(`*Format salah!*\n\n*Example : ${prefix + command} @tag*`)
+			var kickya = q.split('@')[1] + '@s.whatsapp.net'
+			await haruka.groupRemove(from, [kickya])
+			reply(`Succses kick target!`)
+break
+case 'okick':
 			if (!isGroup) return reply(lang.group())
 		        if (!isOwner) return reply(lang.owner(botname))
-			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 			if(!q)return reply(`*Format salah!*\n\n*Example : ${prefix + command} @tag*`)
 			var kickya = q.split('@')[1] + '@s.whatsapp.net'
