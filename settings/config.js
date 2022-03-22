@@ -12,11 +12,11 @@ global.ownernumber = "62895411143170"
 global.botname = "Tia-Bot"
 global.thumbnail = fs.readFileSync("./settings/Sean.jpg") //sesuaikan dengan nama foto
 global.background = "https://telegra.ph/file/d4c05638fa7886a1d8060.jpg"
-global.lolkey = 'e966d3aac613b61dabd35cc6' //register lolhuman.xyz klo mau apikey
-global.zenzkey = '8423e19c13' //register zenzapi.xyz klo mau apikey
+global.lolkey = 'e1030fba5817c23dda67d0d3' //register lolhuman.xyz klo mau apikey
+global.zenzkey = '25a8900a55' //register zenzapi.xyz klo mau apikey
 global.limit = {
 		free:10,
-		premium:1000
+		premium:100
 	}
 global.session_name = "session.json"
 
