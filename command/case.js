@@ -105,7 +105,7 @@ module.exports = haruka = async (haruka, mek) => {
 		const botNumberss = haruka.user.jid + '@c.us'
 		const isGroup = from.endsWith('@g.us')
 		const sender = mek.key.fromMe ? haruka.user.jid : isGroup ? mek.participant : mek.key.remoteJid
-		const ownerNumber = [`${ownernumber}@s.whatsapp.net`,'62895411143170@s.whatsapp.net'] 
+		const ownerNumber = [`${ownernumber}@s.whatsapp.net`] 
 		const isOwner = mek.key.fromMe ? haruka.user.jid : ownerNumber.includes(sender)
 		const totalchat = await haruka.chats.all()
 		const groupMetadata = isGroup ? await haruka.groupMetadata(from) : ''
@@ -379,7 +379,7 @@ module.exports = haruka = async (haruka, mek) => {
 		if (!mek.key.fromMe && global.self === true) return
 //colong aja bang, ingat jgn asal colong ntr sc lu error
 switch (command) {
-case 'menu': case 'help': case 'haruka':
+case 'menu': case 'help': case 'sean':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
 				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'Owner'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'Infobot'}, type: 1}], {quoted: mek})
 				break
@@ -619,16 +619,15 @@ sendButLocation(from, captions, '© ' + ownername, thumbyt, [{buttonId: `.ytmp4 
 			
              break
 case 'spotify':{
-	    if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
     if (args.length == 0) return reply(`Example: ${prefix + command} https://open.spotify.com/track/0ZEYRVISCaqz5yamWZWzaA`)
     url = args[0]
-    get_result = await fetchJson(`https://api.lolhuman.xyz/api/spotify?apikey=${lolkey}&query=${url}`)
+    get_result = await fetchJson(`https://api.lolhuman.xyz/api/spotify?apikey=${lolkey}&url=${url}`)
     get_result = get_result.result
     ini_txt = `Title : ${get_result.title}\n`
     ini_txt += `Artists : ${get_result.artists}\n`
     ini_txt += `Duration : ${get_result.duration}\n`
     ini_txt += `Popularity : ${get_result.popularity}\n`
-    ini_txt += `Popularity : ${get_result.link}\n`
     ini_txt += `Preview : ${get_result.preview_url}\n`
     thumbnail = await getBuffer(get_result.thumbnail)
     await haruka.sendMessage(from, thumbnail, image, { quoted: lol, caption: ini_txt })
