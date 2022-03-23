@@ -1457,7 +1457,21 @@ case 'anime':{
                     ini_txt += `\nDescription : ${get_result.description}`
                     thumbnail = await getBuffer(get_result.coverImage.large)
                     await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
-                    break
+                    break   
+case 'manga':{
+	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+                    query = args.join(" ")
+                    get_result = await fetchJson(`https://apikey-bear2.herokuapp.com/api/manga?search=${query}&apikey=KingOfBear`)
+                    get_result = get_result.result
+                    ini_txt = `Title : ${get_result.name}\nType : ${get_result.type}\nAuthor : ${get_result.author}\nGenre : ${get_result.genre}\nRating : ${get_result.rating}\nReleased : ${get_result.released}\nStatus : ${get_result.status}\nDescription : ${get_result.description}\nNote : ${get_result.note}\n\n\n`
+                    ini_character = get_result.downloads
+                    for (var x of ini_character) {
+                        ini_txt += `- ${x.date} \nLink:\n(${x.link})\n\n`
+                    }
+                    thumbnail = await getBuffer(get_result.thumb)
+                    await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
+                    break  
 case 'mmanga':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
@@ -1473,23 +1487,6 @@ case 'mmanga':{
                     thumbnail = await getBuffer(get_result.coverImage.large)
                     await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
                     break      
-case 'manga':{
-	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-                    if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
-                    query = args.join(" ")
-                    get_result = await fetchJson(`https://apikey-bear2.herokuapp.com/api/manga?search=${query}&apikey=KingOfBear`)
-                    get_result = get_result.result
-                    ini_txt = `Title : ${get_result.name}\nType : ${get_result.type}\nAuthor : ${get_result.author}\nGenre : ${get_result.genre}\nRating : ${get_result.rating}\nReleased : ${get_result.released}\nStatus : ${get_result.status}\nDescription : ${get_result.description}\nNote : ${get_result.note}\n\n\n`
-                    link_dl = get_result.link_dl
-                    for (var x in link_dl) {
-                        ini_txt += `\n${date}\n`
-                        for (var y in link_dl[x]) {
-                            ini_txt += `${link} - ${link_dl[x][y]}\n`
-                        }
-                    }
-                    thumbnail = await getBuffer(get_result.thumb)
-                    await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
-                    break  
 case 'kusonime':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://kusonime.com/nanatsu-no-taizai-bd-batch-subtitle-indonesia/`)
