@@ -1480,9 +1480,12 @@ case 'manga':{
                     get_result = await fetchJson(`https://apikey-bear2.herokuapp.com/api/manga?search=${query}&apikey=KingOfBear`)
                     get_result = get_result.result
                     ini_txt = `Title : ${get_result.name}\nType : ${get_result.type}\nAuthor : ${get_result.author}\nGenre : ${get_result.genre}\nRating : ${get_result.rating}\nReleased : ${get_result.released}\nStatus : ${get_result.status}\nDescription : ${get_result.description}\nNote : ${get_result.note}\n\n\n`
-                    ini_character = get_result.downloads
-                    for (var x of ini_character) {
-                        ini_txt += `- ${date}\n\n(Link: ${link})`
+                    link_dl = get_result.link_dl
+                    for (var x in link_dl) {
+                        ini_txt += `\n${date}\n`
+                        for (var y in link_dl[x]) {
+                            ini_txt += `${link} - ${link_dl[x][y]}\n`
+                        }
                     }
                     thumbnail = await getBuffer(get_result.thumb)
                     await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
