@@ -1465,7 +1465,7 @@ case 'manga':{
                     get_result = await fetchJson(`https://apikey-bear2.herokuapp.com/api/manga?search=${query}&apikey=KingOfBear`)
                     get_result = get_result.result
                     ini_txt = `Title : ${get_result.name}\nType : ${get_result.type}\nAuthor : ${get_result.author}\nGenre : ${get_result.genre}\nRating : ${get_result.rating}\nReleased : ${get_result.released}\nStatus : ${get_result.status}\nDescription : ${get_result.description}\nNote : ${get_result.note}\n\n\n`
-                    link_dl = get_result.downloads
+                    link_dl = get_result.downloads.node
                     for (var x in link_dl) {
                         ini_txt += `\n${x.date}\n\nLink: ${x.link}\n`
                     }
