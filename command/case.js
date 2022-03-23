@@ -1462,6 +1462,20 @@ case 'manga':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
                     query = args.join(" ")
+                    get_result = await fetchJson(`https://apikey-bear2.herokuapp.com/api/manga?search=${query}&apikey=KingOfBear`)
+                    get_result = get_result.result
+                    ini_txt = `Title : ${get_result.name}\nType : ${get_result.type}\nAuthor : ${get_result.author}\nGenre : ${get_result.genre}\nRating : ${get_result.rating}\nReleased : ${get_result.released}\nStatus : ${get_result.status}\nDescription : ${get_result.description}\nNote : ${get_result.note}\n\n\n`
+                    link_dl = get_result.downloads
+                    for (var x in link_dl) {
+                        ini_txt += `\n${x.date}\n\nLink: ${x.link}\n`
+                    }
+                    thumbnail = await getBuffer(get_result.thumb)
+                    await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
+break
+case 'manga':{
+	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
+                    if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
+                    query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/manga?apikey=${lolkey}&query=${query}`)
                     get_result = get_result.result
                     ini_txt = `Id : ${get_result.id}\nId MAL : ${get_result.idMal}\nTitle : ${get_result.title.romaji}\nEnglish : ${get_result.title.english}\nNative : ${get_result.title.native}\nFormat : ${get_result.format}\nChapters : ${get_result.chapters}\nVolume : ${get_result.volumes}\nStatus : ${get_result.status}\nSource : ${get_result.source}\nStart Date : ${get_result.startDate.day} - ${get_result.startDate.month} - ${get_result.startDate.year}\nEnd Date : ${get_result.endDate.day} - ${get_result.endDate.month} - ${get_result.endDate.year}\nGenre : ${get_result.genres.join(", ")}\nSynonyms : ${get_result.synonyms.join(", ")}\nScore : ${get_result.averageScore}%\nCharacters : \n`
