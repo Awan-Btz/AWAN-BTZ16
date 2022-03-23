@@ -1472,7 +1472,7 @@ case 'manga':{
                     thumbnail = await getBuffer(get_result.thumb)
                     await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
 break
-case 'manga':{
+case 'mmanga':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
                     query = args.join(" ")
