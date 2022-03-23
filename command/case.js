@@ -1467,7 +1467,7 @@ case 'manga':{
                     ini_txt = `Title : ${get_result.name}\nType : ${get_result.type}\nAuthor : ${get_result.author}\nGenre : ${get_result.genre}\nRating : ${get_result.rating}\nReleased : ${get_result.released}\nStatus : ${get_result.status}\nDescription : ${get_result.description}\nNote : ${get_result.note}\n\n\n`
                     ini_character = get_result.downloads
                     for (var x of ini_character) {
-                        ini_txt += `- ${x.date}\n(Link: ${x.link})\n`
+                        ini_txt += `- ${date}\n(Link: ${link})\n`
                     }
                     thumbnail = await getBuffer(get_result.thumb)
                     await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
