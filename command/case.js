@@ -1467,7 +1467,7 @@ case 'manga':{
                     ini_txt = `Title : ${get_result.name}\nType : ${get_result.type}\nAuthor : ${get_result.author}\nGenre : ${get_result.genre}\nRating : ${get_result.rating}\nReleased : ${get_result.released}\nStatus : ${get_result.status}\nDescription : ${get_result.description}\nNote : ${get_result.note}\n\n\n`
                     ini_character = get_result.downloads
                     for (var x of ini_character) {
-                        ini_txt += `- ${x.date} \nLink:\n(${x.link})\n\n`
+                        ini_txt += `=> ${x.date} \nLink:\n(${x.link})\n\n`
                     }
                     thumbnail = await getBuffer(get_result.thumb)
                     await haruka.sendMessage(from, thumbnail, image, { quoted: mek, caption: ini_txt })}
@@ -1498,7 +1498,7 @@ case 'kusonime':{
                     for (var x in link_dl) {
                         ini_txt += `\n${x}\n`
                         for (var y in link_dl[x]) {
-                            ini_txt += `${y} - ${link_dl[x][y]}\n`
+                            ini_txt += `${y} \n=> ${link_dl[x][y]}\n`
                         }
                     }
                     ini_buffer = await getBuffer(get_result.thumbnail)
@@ -1510,12 +1510,12 @@ case 'kusonimesearch':{
                     query = args.join(" ")
                     get_result = await fetchJson(`https://api.lolhuman.xyz/api/kusonimesearch?apikey=${lolkey}&query=${query}`)
                     get_result = get_result.result
-                    ini_txt = `Title : ${get_result.title}\nJapanese : ${get_result.japanese}\nGenre : ${get_result.genre}\nSeasons : ${get_result.seasons}\nProducers : ${get_result.producers}\nType : ${get_result.type}\nStatus : ${get_result.status}\nTotal Episode : ${get_result.total_episode}\nScore : ${get_result.score}\nDuration : ${get_result.duration}\nReleased On : ${get_result.released_on}\nDesc : ${get_result.desc}\n`
+                    ini_txt = `Title : ${get_result.title}\nJapanese : ${get_result.japanese}\nGenre : ${get_result.genre}\nSeasons : ${get_result.seasons}\nProducers : ${get_result.producers}\nType : ${get_result.type}\nStatus : ${get_result.status}\nTotal Episode : ${get_result.total_episode}\nScore : ${get_result.score}\nDuration : ${get_result.duration}\nReleased On : ${get_result.released_on}\nDesc : ${get_result.desc}\n\n𝔻𝕠𝕨𝕟𝕝𝕠𝕒𝕕:`
                     link_dl = get_result.link_dl
                     for (var x in link_dl) {
                         ini_txt += `\n${x}\n`
                         for (var y in link_dl[x]) {
-                            ini_txt += `${y} - ${link_dl[x][y]}\n`
+                            ini_txt += `${y} \n=> ${link_dl[x][y]}\n`
                         }
                     }
                     ini_buffer = await getBuffer(get_result.thumbnail)
@@ -1539,7 +1539,7 @@ case 'otakudesu':{
                             ini_txt += `\`\`\`Link : \`\`\`\n`
                             down_link = ini_info.link_dl
                             for (var z in down_link) {
-                                ini_txt += `${z} - ${down_link[z]}\n`
+                                ini_txt += `${z} \n=> ${down_link[z]}\n`
                             }
                         }
                     }
@@ -1562,7 +1562,7 @@ case 'otakudesusearch':{
                             ini_txt += `\`\`\`Link : \`\`\`\n`
                             down_link = ini_info.link_dl
                             for (var z in down_link) {
-                                ini_txt += `${z} - ${down_link[z]}\n`
+                                ini_txt += `${z} \n=> ${down_link[z]}\n`
                             }
                         }
                     }
