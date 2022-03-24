@@ -1065,6 +1065,22 @@ case 'jadi_makin_sayang_deh':
 					await 
     reply('Aku juga makin sayang sama kamu 🥰')
 			break 
+case 'ara-ara':
+		anu = fs.readFileSync('./database/vn/ara-ara.mp3')
+		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
+break
+case 'daisukidayo.mp3':
+		anu = fs.readFileSync('./database/vn/daisukidayo.mp3')
+		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
+break
+case 'o-onii-chan':
+		anu = fs.readFileSync('./database/vn/o-onii-chan.mp3')
+		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
+break
+case 'onii-chan':
+		anu = fs.readFileSync('./database/vn/onii-chan.mp3')
+		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
+break
 case 'ppcp':
 case 'ppcouple':
 if (!isGroup) return reply(lang.group())
