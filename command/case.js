@@ -1033,8 +1033,13 @@ case 'welcome':
 case 'sayang':
 			if (!isOwner) return reply(lang.owner(botname))
 					await 
-    reply('Iya sayangku❤️ , kenapa?')
+    reply('Iya sayang❤️ , kenapa?')
 			break   
+case 'iya_kan_sayang':
+			if (!isOwner) return reply(lang.owner(botname))
+					await 
+    reply('Iya sayang❤️')
+			break  
 case 'kangen':
 			if (!isOwner) return reply(lang.owner(botname))
 					await 
@@ -1064,9 +1069,36 @@ case 'ppcp':
 case 'ppcouple':
 if (!isGroup) return reply(lang.group())
 anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
+buff1 = await get_Buffer (anu.result.cowo_image)
+haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
+buff2 =await get_Buffer (anu.result.cewe_image)
+haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
+break
+case 'ppcp':
+case 'ppcouple':
+if (!isGroup) return reply(lang.group())
+anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
 buff1 = await getBuffer (anu.result.cowo_image)
 haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
 buff2 =await getBuffer (anu.result.cewe_image)
+haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
+break
+case 'ppcp':
+case 'ppcouple':
+if (!isGroup) return reply(lang.group())
+anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
+buff1 = await get_buffer (anu.result.cowo_image)
+haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
+buff2 =await get_buffer (anu.result.cewe_image)
+haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
+break
+case 'ppcp':
+case 'ppcouple':
+if (!isGroup) return reply(lang.group())
+anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
+buff1 = await getbuffer (anu.result.cowo_image)
+haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
+buff2 =await getbuffer (anu.result.cewe_image)
 haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
 break
 case 'kick':
