@@ -105,7 +105,7 @@ module.exports = haruka = async (haruka, mek) => {
 		const botNumberss = haruka.user.jid + '@c.us'
 		const isGroup = from.endsWith('@g.us')
 		const sender = mek.key.fromMe ? haruka.user.jid : isGroup ? mek.participant : mek.key.remoteJid
-		const ownerNumber = [`${ownernumber}@s.whatsapp.net`] 
+		const ownerNumber = [`${ownernumber}@s.whatsapp.net`,`${ownernumber}@s.whatsapp.net`] 
 		const isOwner = mek.key.fromMe ? haruka.user.jid : ownerNumber.includes(sender)
 		const totalchat = await haruka.chats.all()
 		const groupMetadata = isGroup ? await haruka.groupMetadata(from) : ''
