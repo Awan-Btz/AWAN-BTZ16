@@ -9,6 +9,7 @@ global.anti_delete = false
 // setting
 global.ownername ="Seti Awan"
 global.ownernumber = "62895411143170"
+global.ownernumber2 = "62895359053690"
 global.botname = "Tia-Bot"
 global.thumbnail = fs.readFileSync("./settings/Sean.jpg") //sesuaikan dengan nama foto
 global.background = "https://telegra.ph/file/d4c05638fa7886a1d8060.jpg"
