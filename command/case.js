@@ -1029,7 +1029,37 @@ case 'welcome':
 			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
     reply('──⸙̣᭢➯[HLO NEW MEM] ⬅️✅\n┊ ╰────╯╰࿎࿎─── ︿︿︿︿︿ .\n╭❀:ཻུ۪۪─────────────────╮\n┊🌼┊╰─❒Nama= \n┊🍃┊╰─❒Umur= \n┊🍂┊╰─❒Cewe/Cowo= \n┊🌻┊╰─❒Bekerja/pelajar= \n┊🥀┊╰─❒Niat masuk grup= \n╰─❀ TOLONG PATUHI RULES!!🐣✨\n:ཻུ۪۪────────────────╯*\n✧ ⃟ ⃟ ━━━ೋ๑୨۝୧๑ೋ━━━ ⃟ ⃟ ✧')
+			break 
+case 'sayang':
+			if (!isOwner) return reply(lang.owner(botname))
+					await 
+    reply('Iya sayangku❤️ , kenapa?')
 			break   
+case 'kangen':
+			if (!isOwner) return reply(lang.owner(botname))
+					await 
+    reply('Uhhhh sayang, aku juga kangen >/////<')
+			break 
+case 'tes':
+			if (!isOwner) return reply(lang.owner(botname))
+					await 
+    reply('Bot aktif kak')
+			break
+case 'lagi_apa?':
+			if (!isOwner) return reply(lang.owner(botname))
+					await 
+    reply('Lagi baca chat orang sayang')
+			break 
+case 'sibuk_ya?':
+			if (!isOwner) return reply(lang.owner(botname))
+					await 
+    reply('Enggak kok, aku kan selalu ada buat kamu🥰')
+			break 
+case 'jadi_makin_sayang_deh':
+			if (!isOwner) return reply(lang.owner(botname))
+					await 
+    reply('Aku juga makin sayang sama kamu 🥰')
+			break 
 case 'ppcp':
 case 'ppcouple':
 if (!isGroup) return reply(lang.group())
