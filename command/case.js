@@ -1031,37 +1031,30 @@ case 'welcome':
     reply('──⸙̣᭢➯[HLO NEW MEM] ⬅️✅\n┊ ╰────╯╰࿎࿎─── ︿︿︿︿︿ .\n╭❀:ཻུ۪۪─────────────────╮\n┊🌼┊╰─❒Nama= \n┊🍃┊╰─❒Umur= \n┊🍂┊╰─❒Cewe/Cowo= \n┊🌻┊╰─❒Bekerja/pelajar= \n┊🥀┊╰─❒Niat masuk grup= \n╰─❀ TOLONG PATUHI RULES!!🐣✨\n:ཻུ۪۪────────────────╯*\n✧ ⃟ ⃟ ━━━ೋ๑୨۝୧๑ೋ━━━ ⃟ ⃟ ✧')
 			break 
 case 'sayang':
-			if (!isOwner) return reply(lang.owner(botname))
 					await 
     reply('Iya sayang❤️ , kenapa?')
 			break   
 case 'iya_kan_sayang':
-			if (!isOwner) return reply(lang.owner(botname))
 					await 
     reply('Iya sayang❤️')
 			break  
 case 'kangen':
-			if (!isOwner) return reply(lang.owner(botname))
 					await 
     reply('Uhhhh sayang, aku juga kangen >/////<')
 			break 
 case 'tes':
-			if (!isOwner) return reply(lang.owner(botname))
 					await 
     reply('Bot aktif kak')
 			break
 case 'lagi_apa?':
-			if (!isOwner) return reply(lang.owner(botname))
 					await 
     reply('Lagi baca chat orang sayang')
 			break 
 case 'sibuk_ya?':
-			if (!isOwner) return reply(lang.owner(botname))
 					await 
     reply('Enggak kok, aku kan selalu ada buat kamu🥰')
 			break 
 case 'jadi_makin_sayang_deh':
-			if (!isOwner) return reply(lang.owner(botname))
 					await 
     reply('Aku juga makin sayang sama kamu 🥰')
 			break 
@@ -1080,42 +1073,6 @@ break
 case 'onii-chan':
 		anu = fs.readFileSync('./database/vn/onii-chan.mp3')
 		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
-break
-case 'ppcp':
-case 'ppcouple':
-if (!isGroup) return reply(lang.group())
-anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
-buff1 = await get_Buffer (anu.result.cowo_image)
-haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
-buff2 =await get_Buffer (anu.result.cewe_image)
-haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
-break
-case 'ppcp':
-case 'ppcouple':
-if (!isGroup) return reply(lang.group())
-anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
-buff1 = await getBuffer (anu.result.cowo_image)
-haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
-buff2 =await getBuffer (anu.result.cewe_image)
-haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
-break
-case 'ppcp':
-case 'ppcouple':
-if (!isGroup) return reply(lang.group())
-anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
-buff1 = await get_buffer (anu.result.cowo_image)
-haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
-buff2 =await get_buffer (anu.result.cewe_image)
-haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
-break
-case 'ppcp':
-case 'ppcouple':
-if (!isGroup) return reply(lang.group())
-anu = await fetchJson(`https://ziy.herokuapp.com/api/gacha/ppcouple2?apikey=xZiyy`)
-buff1 = await getbuffer (anu.result.cowo_image)
-haruka.sendMessage(from, buff1, image, {quoted: mek, caption: 'COWOK'})
-buff2 =await getbuffer (anu.result.cewe_image)
-haruka.sendMessage(from, buff2, image, {quoted: mek, caption: 'CEWEK'})
 break
 case 'kick':
 			if (!isGroup) return reply(lang.group())
