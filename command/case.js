@@ -1060,19 +1060,19 @@ case 'jadi_makin_sayang_deh':
 			break 
 case 'ara-ara':
 		anu = fs.readFileSync('./database/vn/ara-ara.mp3')
-		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
+		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ptt:true})
 break
 case 'daisukidayo.mp3':
 		anu = fs.readFileSync('./database/vn/daisukidayo.mp3')
-		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
+		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ptt:true})
 break
 case 'o-onii-chan':
 		anu = fs.readFileSync('./database/vn/o-onii-chan.mp3')
-		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
+		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ptt:true})
 break
 case 'onii-chan':
 		anu = fs.readFileSync('./database/vn/onii-chan.mp3')
-		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ppt:true})
+		haruka.sendMessage(from,anu,MessageType.audio,{quoted: mek,mimetype:'audio/mp4',ptt:true})
 break
 case 'kick':
 			if (!isGroup) return reply(lang.group())
