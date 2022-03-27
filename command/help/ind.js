@@ -62,6 +62,7 @@ exports.menu = (prefix, salam, pushname) =>{
 ╭─⬣ *List Menu*
 │ • ${prefix}menu
 │ • ${prefix}help
+│ • ${prefix}olg [Link grub owner]
 │
 ├ *Download*
 │ • ${prefix}play [query]
