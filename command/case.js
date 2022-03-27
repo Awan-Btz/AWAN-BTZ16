@@ -1034,6 +1034,10 @@ case 'welcome':
 					await 
     reply('──⸙̣᭢➯[HLO NEW MEM] ⬅️✅\n┊ ╰────╯╰࿎࿎─── ︿︿︿︿︿ .\n╭❀:ཻུ۪۪─────────────────╮\n┊🌼┊╰─❒Nama= \n┊🍃┊╰─❒Umur= \n┊🍂┊╰─❒Cewe/Cowo= \n┊🌻┊╰─❒Bekerja/pelajar= \n┊🥀┊╰─❒Niat masuk grup= \n╰─❀ TOLONG PATUHI RULES!!🐣✨\n:ཻུ۪۪────────────────╯*\n✧ ⃟ ⃟ ━━━ೋ๑୨۝୧๑ೋ━━━ ⃟ ⃟ ✧')
 			break 
+case 'olg':
+					await 
+    reply('Jika ingin bertanya tanya:\nhttps://chat.whatsapp.com/KIpR2hclCVK6ACegAp5aC5')
+			break  
 case 'sayang':
 					await 
     reply('Iya sayang❤️ , kenapa?')
