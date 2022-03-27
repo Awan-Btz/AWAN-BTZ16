@@ -1023,10 +1023,14 @@ case 'rulesda': case 'rda':
 					await 
     reply('⚠️ RULES/PERATURAN GROUP\n➡️ LARANGAN CHAT💬 :\n• Dilarang toxic & rasis\n• Dilarang nyimak & nabung pesan\n• Dilarang membahas selain anime, manga, manhua, dan manhwa\n➡️ MEDIA📌 : \n• Stiker 4x, gif 3x sehari (lebih kick)\n• Pesan suara 5x sehari (lebih kick)\n• Video, foto, musik 5x file/menit (lewati batas kick)\n➡️ LARANGAN SHARE📲 : \n• Dilarang share 18+ (porno/sex/adult)\n• Dilarang share link phising/hoax\n• Dilarang share group WA, Tele, Channel YT\n• Dilarang promosi WA, Tele, Channel YT\n➡️ TUJUAN🖊️ : \n• Membahas seputar manga, manhua, manhwa (DA 3)\n• Berbagi rekomendasi & info update anime (DA 1)\n• Menjalin solidaritas animelovers, wibu, dan otaku\n• Saling berbagi ilmu bahasa Jepang (DA 2)\n➡️ NOTE📝: \n• Jika melanggar aturan tersebut akan dikeluarkan dari group\n\n~ Baca & patuhi rules tersebut ~ 🤝🏻')
 			break 
+case 'rules1': case 'r1':
+			if (!isGroup) return reply(lang.group())
+                        if (!isBotGroupAdmins) return reply(lang.adminB())
+					await 
+    reply('Welcome\n1.Attitude first\n2.admin words are absolute\n3.Dont send porn/gore content in any kind\n4.Dont talk about sara and racism\n5.Links, spam and promotions are not allowed in this group.\n~~~~~\nAturan Grup\n1.Sikap dulu\n2.Perkataan admin adalah mutlak\n3.Jangan mengirim konten porno/gore dalam bentuk apa pun\n4.Jangan bicara tentang sara dan rasisme\n5.Link,spam,dan promosi tidak diperbolehkan di grup ini')
+			break 
 case 'welcome':
 			if (!isGroup) return reply(lang.group())
-			if (!isGroupAdmins) return reply(lang.admin(groupName))
-			if (!isBotGroupAdmins) return reply(lang.adminB())
 					await 
     reply('──⸙̣᭢➯[HLO NEW MEM] ⬅️✅\n┊ ╰────╯╰࿎࿎─── ︿︿︿︿︿ .\n╭❀:ཻུ۪۪─────────────────╮\n┊🌼┊╰─❒Nama= \n┊🍃┊╰─❒Umur= \n┊🍂┊╰─❒Cewe/Cowo= \n┊🌻┊╰─❒Bekerja/pelajar= \n┊🥀┊╰─❒Niat masuk grup= \n╰─❀ TOLONG PATUHI RULES!!🐣✨\n:ཻུ۪۪────────────────╯*\n✧ ⃟ ⃟ ━━━ೋ๑୨۝୧๑ೋ━━━ ⃟ ⃟ ✧')
 			break 
