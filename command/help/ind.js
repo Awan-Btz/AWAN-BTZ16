@@ -106,32 +106,7 @@ exports.menu = (prefix, salam, pushname) =>{
 │ • ${prefix}alquranaudio
 │ • ${prefix}jadwalsholat
 │
-├ *For wibu*
-│ • ${prefix}nami 
-│ • ${prefix}copper 
-│ • ${prefix}naruto  
-│ • ${prefix}zoro 
-│ • ${prefix}ussop 
-│ • ${prefix}minato 
-│ • ${prefix}sasuke 
-│ • ${prefix}sakura
-│ • ${prefix}luffy 
-│ • ${prefix}sanji  
-│ • ${prefix}boruto 
-│ • ${prefix}sarada 
-│ • ${prefix}mitsuki 
-│ • ${prefix}orochimaru 
-│ • ${prefix}tsunade 
-│ • ${prefix}kakashi 
-│ • ${prefix}killua 
-│ • ${prefix}gon 
-│ • ${prefix}rimuru 
-│ • ${prefix}sagiri 
-│ • ${prefix}natsu 
-│ • ${prefix}tanjirou 
-│ • ${prefix}nezuko 
-│ • ${prefix}senku
-│
+
 ├ *Maker Ephoto360*
 │ • ${prefix}wetglass
 │ • ${prefix}multicolor3d
@@ -247,7 +222,7 @@ exports.menu = (prefix, salam, pushname) =>{
 │ • ${prefix}anticall [on/off]
 │ • >
 │ • $
-│ •  => 
+│ •  =>
 │
 ├ *Group*
 │ • ${prefix}sider [reply pesan bot]
